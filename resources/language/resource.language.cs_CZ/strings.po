@@ -1,0 +1,32 @@
+# Kodi Media Center language file
+# Addon Name: Online letaky
+# Addon id: plugin.image.letaky
+msgid ""
+msgstr ""
+
+"Language: cs_CZ\n"
+
+msgctxt "#32000"
+msgid "General"
+msgstr "Obecné"
+
+msgctxt "#32001"
+msgid "Country"
+msgstr "Krajina"
+
+msgctxt "#32002"
+msgid "Mark Slovakia"
+msgstr "Obchody Slovensko"
+
+msgctxt "#32003"
+msgid "Mark Czech"
+msgstr "Obchody Česko"
+
+
+msgctxt "#32101"
+msgid "Slovakia"
+msgstr "Slovensko"
+
+msgctxt "#32102"
+msgid "Czech republic"
+msgstr "Česko"

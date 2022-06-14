@@ -1,0 +1,32 @@
+# Kodi Media Center language file
+# Addon Name: Online letaky
+# Addon id: plugin.image.letaky
+msgid ""
+msgstr ""
+
+"Language: en_GB\n"
+
+msgctxt "#32000"
+msgid "General"
+msgstr ""
+
+msgctxt "#32001"
+msgid "Country"
+msgstr ""
+
+msgctxt "#32002"
+msgid "Mark Slovakia"
+msgstr ""
+
+msgctxt "#32003"
+msgid "Mark Czech"
+msgstr ""
+
+
+msgctxt "#32101"
+msgid "Slovakia"
+msgstr ""
+
+msgctxt "#32102"
+msgid "Czech republic"
+msgstr ""

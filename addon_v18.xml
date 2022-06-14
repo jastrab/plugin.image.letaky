@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='utf-8'?>
+<addon id="plugin.image.letaky" name="Online letáky" provider-name="Jastrab" version="0.0.7.1">
+	<requires>
+		<!-- Podpora pre Kodi 18 -->
+		<import addon="xbmc.python" version="2.1.0" />
+		<import addon="script.module.requests"/>
+	</requires>
+	<extension point="xbmc.python.pluginsource" library="main.py">
+		<provides>image</provides> 
+	</extension>
+
+	<extension point="xbmc.addon.metadata">
+		<summary lang="en">Online letáky</summary>
+		<summary lang="cs">Online letáky</summary>
+		<summary lang="sk">Online letáky</summary>
+		 <description lang="en">Prezerenie akciových online letákov z rôznych obchodov ako Albert, Billa, Kaufland, Tesco, Lidl, DM, Jednota, Mojobchod, Fresh ..</description>
+         <description lang="cs">Prezerenie akciových online letákov z rôznych obchodov ako Albert, Billa, Kaufland, Tesco, Lidl, DM, Coop, Mujobchod, Makro ..</description>
+         <description lang="sk">Prezerenie akciových online letákov z rôznych obchodov ako Albert, Billa, Kaufland, Tesco, Lidl, DM, Jednota, Mojobchod, Fresh, Metro ...</description>
+		<platform>all</platform>
+		 <news>[B]0.0.7.1:[/B] [COLOR=yellow] (27.05.2022)[/COLOR]
+            - fix pre android
+            
+            [B]0.0.7:[/B] [COLOR=yellow] (09.05.2022)[/COLOR]
+            - nove letaky -> 110 CZ / 115 SK
+            - nove/doplnene loga
+            - zmena nacitavania loga
+            - fix cover miesto loga pri letaku
+            - fix stare letaky - max 3 posledne 
+            
+
+            [B]0.0.6:[/B] [COLOR=yellow] (12.04.2022)[/COLOR]
+            - nove letaky
+            - nove/doplnene loga
+            - zmena nacitavania loga
+            
+                
+            [B]0.0.5:[/B] [COLOR=yellow](19.03.2022)[/COLOR]
+            - novy server
+            - zmena nacitavania udajov o letakoch
+            - optimalizacia kvality obrazkov
+            - zmena formatu z jpg na webp
+            - pridany filter obchodov - nastavenia
+            - zmena popisu nazvu letakov
+            - nove letaky
+            - prekopanny settings 
+            - pridana podpora jazykov</news>
+		<assets>
+			<icon>icon.jpg</icon>
+		</assets>
+	</extension>
+</addon>

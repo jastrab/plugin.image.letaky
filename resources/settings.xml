@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings version="1">
+    <section id="plugin.image.letaky">
+        <category id="1" label="32000" help="">
+            <group id="1" label="">
+
+                <setting label="32001" id="lang" type="string" help="">
+                    <level>0</level>
+                    <default>sk</default>
+                    <constraints>
+                        <options>
+                            <option label="32101">sk</option>
+                            <option label="32102">cz</option>
+                        </options>
+                    </constraints>
+                    <control type="spinner" format="string"/>
+                </setting>
+
+                <setting label="32002" id="obchody" type="list[string]" help="tu je napoveda">
+                    <level>0</level>
+                    <default>0</default>
+                    <constraints>
+                        <options>                            
+                            <!-- <option label="** Všetko **">all</option> -->
+                            <option label="_101 drogerie">101drogerie</option>
+                            <option label="_1day">1day</option>
+                            <option label="ASKO nábytok">asko</option>
+                            <option label="Auto Kelly">autokelly</option>
+                            <option label="Avon">avon</option>
+                            <option label="Banquet">banquet</option>
+                            <option label="BauHaus">bauhaus</option>
+                            <option label="Benu lekáreň">benulekaren</option>
+                            <option label="Billa">billa</option>
+                            <option label="Black Red White">black_red_white</option>
+                            <option label="Blanco">blanco</option>
+                            <option label="Bon Prix">bonprix</option>
+                            <option label="CBA Verex">cba_verex</option>
+                            <option label="Comfor">comfor</option>
+                            <option label="Datart">datart</option>
+                            <option label="Decodom">decodom</option>
+                            <option label="Deichmann">deichmann</option>
+                            <option label="DELIA potraviny">delia_potraviny</option>
+                            <option label="Diego">diego</option>
+                            <option label="DM">dm</option>
+                            <option label="DMJ market">dmj_market</option>
+                            <option label="Domoss">domoss</option>
+                            <option label="Dom farieb">domyfarieb</option>
+                            <option label="Dráčik">dracik</option>
+                            <option label="Dr.Max">drmax</option>
+                            <option label="ed profi">edprofi</option>
+                            <option label="Eurona by Cerny">eurona_cerny</option>
+                            <option label="EXIsport">exisport</option>
+                            <option label="FAnn parfumérie">fann</option>
+                            <option label="Fines">fines</option>
+                            <option label="FiorAngelo">fiorangelo</option>
+                            <option label="Fresh">fresh</option>
+                            <option label="Globus (Zvolen)">globuszv</option>
+                            <option label="GRM Trade">grm</option>
+                            <option label="GVP CBA">gvphe</option>
+                            <option label="Hecht">hecht</option>
+                            <option label="HornBach ">hornbach</option>
+                            <option label="Husky">husky</option>
+                            <option label="IDEA nábytok">idea-nabytok</option>
+                            <option label="Ikea">ikea</option>
+                            <option label="Pekáreň IlaS">ilas</option>
+                            <option label="Italmarket">italmarket</option>
+                            <option label="Janus nápoje">janusnapoje</option>
+                            <option label="Jednota">jednota</option>
+                            <option label="Just Nahrin">justnahrin</option>
+                            <option label="Jysk">jysk</option>
+                            <option label="Karmen">karmen</option>
+                            <option label="Kaufland">kaufland</option>
+                            <option label="Kik">kik</option>
+                            <option label="Kinekus">kinekus</option>
+                            <option label="Klas">klas</option>
+                            <option label="Ko.Ma.Co">komaco_cba</option>
+                            <option label="CBA Komfos">komfos</option>
+                            <option label="Kondela">kondela</option>
+                            <option label="KON-RAD">konrad</option>
+                            <option label="Koruna">koruna</option>
+                            <option label="Kraj">kraj</option>
+                            <option label="Labaš">labas</option>
+                            <option label="Lekáreň INA">lekaren-ina</option>
+                            <option label="Libex">libex</option>
+                            <option label="Lidl">lidl</option>
+                            <option label="Makos">makos</option>
+                            <option label="Malina potraviny">malina</option>
+                            <option label="Marionnaud ">marionnaud</option>
+                            <option label="Mary Kay">marykay</option>
+                            <option label="Merkury Market">merkurymarket</option>
+                            <option label="Metro">metro</option>
+                            <option label="MilkAgro">milkagro</option>
+                            <option label="Möbelix">mobelix</option>
+                            <option label="Môj obchod">mojobchod</option>
+                            <option label="Mountfield">mountfield</option>
+                            <option label="Nay">nay</option>
+                            <option label="Nitra Zdroj">nitrazdroj</option>
+                            <option label="OBI">obi</option>
+                            <option label="Okay">okay</option>
+                            <option label="Okentěs">okentes</option>
+                            <option label="Oriflame">oriflame</option>
+                            <option label="Pepco">pepco</option>
+                            <option label="PetCenter">petcenter</option>
+                            <option label="Planeo">planeo</option>
+                            <option label="Plus lekáreň">plus-lekaren</option>
+                            <option label="Pompo">pompo</option>
+                            <option label="Prescot">prescot</option>
+                            <option label="Progma">progma</option>
+                            <option label="Proma">proma</option>
+                            <option label="R-comp">r_comp</option>
+                            <option label="Raja">raja</option>
+                            <option label="Rea nábytok">rea_nabytok</option>
+                            <option label="Retrogéria ">retrogeria</option>
+                            <option label="ROKO">roko</option>
+                            <option label="Rover">rover</option>
+                            <option label="Sama">sama</option>
+                            <option label="Schneider lekáreň">schneider-lekaren</option>
+                            <option label="Sconto">sconto</option>
+                            <option label="Ševt">sevt</option>
+                            <option label="Siko">siko</option>
+                            <option label="Sintra">sintra</option>
+                            <option label="Smoker">smoker</option>
+                            <option label="Josef Starkl">starkl</option>
+                            <option label="Stihl">stihl</option>
+                            <option label="Super zoo">superzoo</option>
+                            <option label="TakeTo.sk">taketosk</option>
+                            <option label="Takko">takko</option>
+                            <option label="Terno">terno</option>
+                            <option label="Tesco">tesco</option>
+                            <option label="Tescoma">tescoma</option>
+                            <option label="Teta drogerie">teta</option>
+                            <option label="TEVOS drogérie">tevos</option>
+                            <option label="TOP drogéria">top_drogeria</option>
+                            <option label="Vaša lekáreň">vasa-lekaren</option>
+                            <option label="Velký Košík">velkykosik</option>
+                            <option label="Kollár">vokollar</option>
+                            <option label="X-Play">xplay</option>
+                            <option label="XXXLutz">xxxlutz</option>
+                            <option label="Žabka">zabka</option>
+                            <option label="Zelená Lekáreň">zelenalekaren</option>
+                        </options>
+                    </constraints>
+                    <control type="list" format="string">
+                        <multiselect>true</multiselect>
+                    </control>
+                </setting>
+
+                <!-- <setting label="32102" help="" type="lsep"/> -->
+                <setting label="32003" id="obchody_cz" type="list[string]" help="">
+                    <level>0</level>
+                    <default>0</default>
+                    <constraints>
+                        <options>                            
+                            <!-- <option label="** Všetko **">_all_</option> -->
+                            <option label="Adam">adam</option>
+                            <option label="Albert">albert</option>
+                            <option label="Alphega lékárna">alphega_lekarna</option>
+                            <option label="ASKO nábytok">asko</option>
+                            <option label="Auto Kelly">autokelly</option>
+                            <option label="Avon">avon</option>
+                            <option label="Bala">bala</option>
+                            <option label="Banquet">banquet</option>
+                            <option label="BauHaus">bauhaus</option>
+                            <option label="Baumax">baumax</option>
+                            <option label="Benu lekáreň">benulekaren</option>
+                            <option label="BetterStyle">better_style</option>
+                            <option label="Billa">billa</option>
+                            <option label="Black Red White">black_red_white</option>
+                            <option label="Brněnka">brnenka</option>
+                            <option label="CBA">cba</option>
+                            <option label="Čepos">cepos</option>
+                            <option label="Coop Club">coop_club</option>
+                            <option label="Coop Diskont">coop_diskont</option>
+                            <option label="Coop Hořovice">coop_horovice</option>
+                            <option label="Coop Mikulov">coop_mikulov</option>
+                            <option label="Datart">datart</option>
+                            <option label="DecoDoma">decodoma</option>
+                            <option label="Dedra">dedra</option>
+                            <option label="Deichmann">deichmann</option>
+                            <option label="DM">dm</option>
+                            <option label="Dráčik">dracik</option>
+                            <option label="Dr.Max">drmax</option>
+                            <option label="ed profi">edprofi</option>
+                            <option label="Electro World">electroworld</option>
+                            <option label="Elektro Spáčil">elektro_spacil</option>
+                            <option label="Enapo">enapo</option>
+                            <option label="Eso market">eso_market</option>
+                            <option label="Estetica ">estetica</option>
+                            <option label="Eva">eva</option>
+                            <option label="Expert">expert</option>
+                            <option label="FAnn">fann_cz</option>
+                            <option label="Filson Store">filson_store</option>
+                            <option label="Flop">flop</option>
+                            <option label="Globus">globus</option>
+                            <option label="Hecht">hecht</option>
+                            <option label="H+H Řeznictví">hh</option>
+                            <option label="HornBach ">hornbach</option>
+                            <option label="Hruška">hruska</option>
+                            <option label="Husky">husky</option>
+                            <option label="Iceland">iceland</option>
+                            <option label="Ikea">ikea</option>
+                            <option label="Jamall nábytek">jamall</option>
+                            <option label="JAVOR">javor</option>
+                            <option label="JENA nábytek">jena_nabytek</option>
+                            <option label="JIP potraviny">jip_potraviny</option>
+                            <option label="Just Nahrin">justnahrin</option>
+                            <option label="Jysk">jysk</option>
+                            <option label="Kaufland">kaufland</option>
+                            <option label="Kik">kik</option>
+                            <option label="Kitos">kitos</option>
+                            <option label="Knižní klub">knizni_klub</option>
+                            <option label="Krásno">krasno</option>
+                            <option label="Kubík">kubik</option>
+                            <option label="Lekáreň AGEL">lekarna_agel</option>
+                            <option label="Lidl">lidl</option>
+                            <option label="Makro">makro</option>
+                            <option label="Marionnaud ">marionnaud</option>
+                            <option label="Mary Kay">marykay</option>
+                            <option label="Merkury Market">merkurymarket</option>
+                            <option label="Möbelix">mobelix</option>
+                            <option label="Moje lékárna">mojelekarna</option>
+                            <option label="Partner">mopartner</option>
+                            <option label="Mountfield">mountfield</option>
+                            <option label="Můj obchod">mujobchod</option>
+                            <option label="Nejlevnejsi nabytek .cz">nejlevnejsinabytek</option>
+                            <option label="Norma">norma</option>
+                            <option label="OBI">obi</option>
+                            <option label="Okay">okay</option>
+                            <option label="Okentěs">okentes</option>
+                            <option label="Orfa nábytek">orfa_nabytek</option>
+                            <option label="Oriflame">oriflame</option>
+                            <option label="Penny">penny</option>
+                            <option label="Pepco">pepco</option>
+                            <option label="PetCenter">petcenter</option>
+                            <option label="PharmaPoint Lekárna">pharmapoint</option>
+                            <option label="Pilulka">pilulka</option>
+                            <option label="Planeo">planeo</option>
+                            <option label="PLUS JIP">plus-jip</option>
+                            <option label="PotravinyCZ">potravinycz</option>
+                            <option label="Pramencz">pramencz</option>
+                            <option label="Proton">proton</option>
+                            <option label="Qanto">qanto</option>
+                            <option label="Ratio">ratio</option>
+                            <option label="Rea nábytok">rea_nabytok</option>
+                            <option label="Rossmann">rossmann</option>
+                            <option label="Sconto">sconto</option>
+                            <option label="Sevt">sevt_cz</option>
+                            <option label="Siko">siko</option>
+                            <option label="Josef Starkl">starkl</option>
+                            <option label="Takko">takko</option>
+                            <option label="Tamda Foods">tamda</option>
+                            <option label="Tempo">tempo</option>
+                            <option label="Terno">terno_cz</option>
+                            <option label="Tesco">tesco</option>
+                            <option label="Tescoma">tescoma</option>
+                            <option label="Teta drogerie">teta</option>
+                            <option label="Travel FREE">travel-free</option>
+                            <option label="Trefa">trefa</option>
+                            <option label="Uni Hobby">unihobby</option>
+                            <option label="Velký Košík">velkykosik</option>
+                            <option label="Vesna">vesna</option>
+                            <option label="X-Play">xplay</option>
+                            <option label="XXXLutz">xxxlutz</option>
+                            <option label="Žabka">zabka</option>
+                        </options>
+                    </constraints>
+                    <control type="list" format="string">
+                        <multiselect>true</multiselect>
+                    </control>
+                </setting>
+            
+            </group>
+        </category>
+    </section>
+</settings>
