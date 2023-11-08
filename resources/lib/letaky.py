@@ -73,7 +73,7 @@ def load_url_zip(url, req=None, headers={}):
         return False
    
 
-def json_load_data():
+def json_load_data0000():
     down_zip = False    
     data_web = load_url_zip(URL_JSON_ZIP)
     if data_web:
@@ -92,6 +92,11 @@ def json_load_data():
  
     return data
 
+def json_load_data():
+    data_web = load_url(URL_JSON)
+    data = json.loads(data_web)
+    return data
+
 _max_old_items = 3
 
 LANG = addon.getSetting("lang")
@@ -102,12 +107,19 @@ OBCHODY_CZ = addon.getSetting("obchody_cz")
 if LANG =='cz':
     OBCHODY = OBCHODY_CZ
     URL_API = 'https://letaciky.cz/api.php'
+    # URL = 'https://letaciky.cz/images/%s'%( LANG)
+    # URL = 'https://iovca.eu/images2/%s'%( LANG)
+    URL_JSON = 'https://letaciky.cz/json/data_cz.json'
 else:
     URL_API = 'https://letaciky.sk/api.php'
+    # URL = 'https://letaciky.sk/images/%s'%( LANG)
+    URL_JSON = 'https://letaciky.sk/json/data_sk.json'
 
-URL = 'https://iovca.eu/images/%s'%( LANG)
-URL_JSON = 'https://iovca.eu/images/data_test.json'
-URL_JSON_ZIP = 'https://iovca.eu/images/data_test.zip'
+
+URL = 'https://iovca.eu/images2/%s'%( LANG)
+# URL = 'https://iovca.eu/images/%s'%( LANG)
+#URL_JSON = 'https://iovca.eu/images/data_test.json'
+#URL_JSON_ZIP = 'https://iovca.eu/images/data_test.zip'
 
 
 _icons = 'https://iovca.eu/images/icons/'
@@ -452,7 +464,8 @@ def color_text(data, is_search=False):
     if  typ == 'katalog':
         check_text = ''
 
-    pages = data['pages2']
+    #pages = data['pages2']
+    pages = data['pages']
 
     sub_title = ''
     if 'sub_title' in data and data['sub_title'] != None:
@@ -460,7 +473,8 @@ def color_text(data, is_search=False):
     
     if is_search:
             date_od_do = fixDateNewColor(startDate, endDate, color)
-            page = data['strana_kodi']
+            # page = data['strana_kodi']
+            page = data['strana']
             name = '[COLOR=yellow]%s[/COLOR] strana [COLOR=yellow]%s[/COLOR] %s %s ([COLOR=red]%s[/COLOR])'%(data['obchod'], page, date_od_do, sub_title, pages )
     else:
         if not old:
@@ -502,7 +516,8 @@ def folder_new(id, data_type='all'):
         listitem = xbmcgui.ListItem(label=name)
         listitem.setIsFolder(True)        
         if is_search:
-            page = data['strana_kodi']
+            # page = data['strana_kodi']
+            page = data['strana']
             id = data['obchod']
             url = '%s/%s/%s'%(URL, id, title)
             icon = '{}/strana_{:02d}.{}'.format(url, page, FORMAT_IMG)
