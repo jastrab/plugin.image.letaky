@@ -6,6 +6,25 @@ Prezerenie akciových online letákov z rôznych obchodov ako Albert, Billa, Kau
 
 ## Changelog
 
+### 0.1.0: (08.11.2023)
+- fix zobrazenie polky letaku
+
+### 0.0.9: (04.09.2022)
+- zmena cesty k serveru
+- fix nacitavania dat
+- zmena z dvojstran na jedno stranu
+
+### 0.0.8: (28.06.2022)
+- kategoria vyhladavanie v letakoch
+- kategoria vsetky obchody
+- nove letaky -> 160 SK / 152 CZ
+- nove/doplnene loga
+- zmena vyberu/filtrovania obchodov
+
+### 0.0.7.3:
+- fix pre android
+### 0.0.7.2:
+- fix pre android
 ### 0.0.7.1: (27.05.2022)
 - fix pre android
 
