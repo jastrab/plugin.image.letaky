@@ -464,8 +464,8 @@ def color_text(data, is_search=False):
     if  typ == 'katalog':
         check_text = ''
 
-    #pages = data['pages2']
-    pages = data['pages']
+    pages = data['pages2']
+    #pages = data['pages']
 
     sub_title = ''
     if 'sub_title' in data and data['sub_title'] != None:
@@ -526,7 +526,8 @@ def folder_new(id, data_type='all'):
             icon = '%s/__cover__.%s'%(url, FORMAT_IMG)
 
         listitem.setArt({'thumb': icon, 'icon': icon})
-        url = get_url(action = 'pictures_new', path = encode(url), id = id, letak = data['title'], pages = data['pages'])
+        # url = get_url(action = 'pictures_new', path = encode(url), id = id, letak = data['title'], pages = data['pages'])
+        url = get_url(action = 'pictures_new', path = encode(url), id = id, letak = data['title'], pages = data['pages2'])
         xbmcplugin.addDirectoryItem(_handle, url, listitem, True)
     xbmcplugin.endOfDirectory(_handle)
 

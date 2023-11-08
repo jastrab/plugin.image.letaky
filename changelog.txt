@@ -1,3 +1,6 @@
+[B]0.1:[/B] (08.11.2023)
+- fix zobrazenie polky letaku
+
 [B]0.0.9:[/B] (04.09.2022)
 - zmena cesty k serveru
 - fix nacitavania dat

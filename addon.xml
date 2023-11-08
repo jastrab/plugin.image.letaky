@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<addon id="plugin.image.letaky" name="Online letáky" provider-name="Jastrab" version="0.0.9">
+<addon id="plugin.image.letaky" name="Online letáky" provider-name="Jastrab" version="0.1">
         <requires>
             <import addon="xbmc.python" version="3.0.0" />
             <import addon="script.module.requests"/>
@@ -16,7 +16,10 @@
             <description lang="cs">Prezerenie akciových online letákov z rôznych obchodov ako Albert, Billa, Kaufland, Tesco, Lidl, DM, Coop, Mujobchod, Makro ..</description>
             <description lang="sk">Prezerenie akciových online letákov z rôznych obchodov ako Albert, Billa, Kaufland, Tesco, Lidl, DM, Jednota, Mojobchod, Fresh, Metro ...</description>
             <platform>all</platform>
-            <news>[COLOR=violet][B]0.0.9:[/B][/COLOR] [COLOR=yellow] (04.09.2022)[/COLOR]
+            <news>[COLOR=violet][B]0.1:[/B][/COLOR] [COLOR=yellow] (08.11.2023)[/COLOR]
+- fix zobrazenie polky letaku
+
+[B]0.0.9:[/B] [COLOR=yellow] (04.09.2022)[/COLOR]
 - zmena cesty k serveru
 - fix nacitavania dat
 - zmena z dvojstran na jedno stranu
