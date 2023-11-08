@@ -19,8 +19,6 @@ import zipfile
 #Python 2
 try: 
     import urllib2 as request
-    # reload(sys)  # Reload does the trick!
-    # sys.setdefaultencoding('UTF8')
     import urllib as parse
     def encode(string):
         string = str(unicodedata.normalize('NFKD', string).encode('ascii', 'ignore'))#, "utf-8")
@@ -37,7 +35,7 @@ try:
     _handle = int(sys.argv[1])
 except:
     pass
-# addon = xbmcaddon.Addon(id='plugin.image.letaky')
+
 addon = xbmcaddon.Addon()
 
 
@@ -56,11 +54,14 @@ def load_url(url, req=None, headers={}):
 
 temp = 'data.zip'
 
+def post_search(search_key):
+    data = {'token': 'XXahoj@@post&&moje!!kodi@@', 'search': search_key}
+    data = requests.post(URL_API, data=data)
+    data = json.loads(data.text)
+    data = sortDataSpecific(data)
+    return data
+
 def load_url_zip(url, req=None, headers={}):
-    # req = request.Request(url, headers=headers)
-    # r =  request.urlopen(req)
-    # response = r.read()
-    # return response
     try:
         response = requests.get(url, stream=True)
         with open(temp, "wb") as f:
@@ -91,7 +92,6 @@ def json_load_data():
  
     return data
 
-
 _max_old_items = 3
 
 LANG = addon.getSetting("lang")
@@ -101,16 +101,18 @@ OBCHODY_CZ = addon.getSetting("obchody_cz")
 
 if LANG =='cz':
     OBCHODY = OBCHODY_CZ
+    URL_API = 'https://letaciky.cz/api.php'
+else:
+    URL_API = 'https://letaciky.sk/api.php'
 
-# URL = 'https://iovca.eu/images2/%s'%( LANG)
 URL = 'https://iovca.eu/images/%s'%( LANG)
-# URL_JSON = 'https://iovca.eu/images/data_test2.json'
 URL_JSON = 'https://iovca.eu/images/data_test.json'
 URL_JSON_ZIP = 'https://iovca.eu/images/data_test.zip'
 
 
 _icons = 'https://iovca.eu/images/icons/'
 
+# DATA_SEARCH = {}
 DATA = json_load_data()[LANG]
 data_filter = {}
 
@@ -123,8 +125,8 @@ for f in OBCHODY:
     if f in DATA.keys():
         data_filter[f] =  DATA [f] 
 
-DATA = data_filter
-
+# DATA = data_filter
+DATA_FILTER = data_filter
 FORMAT_IMG = 'webp'
 
 MM = [00, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 ]
@@ -132,8 +134,6 @@ MM = [00, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 ]
 def currentDate():
     today = datetime.date.today()
     return today.strftime("%Y-%m-%d")
-
-
 
 
 
@@ -334,6 +334,8 @@ _CHR = ['%20', '%21', '%22', '%23', '%24', '%25', '%26', '%27', '%28', '%29', '%
 _UTF = [' ', '!', '"', '#', '$', '%', '&', '\'', '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@']
 def parse_par(text):
     data = {}
+    if not text or text == '':
+        return data
     if text and text != '':
         for t in text.split('&'):
             k, v = t.split('=')
@@ -345,32 +347,69 @@ def parse_par(text):
     return data
 
 
-
-
 def fixTitle(title):
     title = title.replace('_', ' ')
     title = title[0].upper() + title[1:]
     title = title.replace('.%s'%FORMAT_IMG, '') 
     return title
 
-def menu_new():
-    for k, v in DATA.items():
+
+def menu_new(data_type='all'):
+
+    if data_type:
+        if data_type == 'filter':
+            datas = DATA_FILTER
+        elif data_type == 'all':
+            # Zoradenie podla title v DATAch
+            data_infos = []
+            for k, v in DATA.items():
+                v['info']['id'] = k
+                data_infos.append(v['info'])
+
+            data_infos = sortData(data_infos, 'title')
+            datas = {}
+            for d in data_infos:
+                datas[d['id']] = {'info': d}
+
+
+    list_item = xbmcgui.ListItem(label=addon.getLocalizedString(32100))
+    list_item.setInfo('image', {'title': addon.getLocalizedString(32100),
+                                'genre': addon.getLocalizedString(32100)})
+    list_item.setArt({'icon': 'DefaultAddonsSearch.png'})
+    link = get_url(search='1')
+    is_folder = True
+    xbmcplugin.addDirectoryItem(_handle, link, list_item, is_folder)
+
+    if data_type != 'all':
+        list_item = xbmcgui.ListItem(label=addon.getLocalizedString(32004))
+        list_item.setInfo('image', {'title': addon.getLocalizedString(32004),
+                                    'genre': addon.getLocalizedString(32004)})
+        # list_item.setArt({'icon': 'DefaultAddonsSearch.png'})
+        link = get_url(action = 'menu_all')
+        is_folder = True
+        xbmcplugin.addDirectoryItem(_handle, link, list_item, is_folder)
+
+    # menu_new_items(data_type='filter')
+
+    for k, v in datas.items():
         #title = v['info']['title']['title']
         title = v['info']['title']
         name = fixTitle ( title )
-        listitem = xbmcgui.ListItem(label=name)
-        listitem.setIsFolder(True)
+        list_item = xbmcgui.ListItem(label=name)
+        list_item.setIsFolder(True)
         url = URL + '/' + k
         # icon = '%s/__cover__.%s'%(url, FORMAT_IMG)
         icon = '%s/%s.webp'%(_icons, k)
 
-        listitem.setArt({'thumb': icon, 'icon': icon})
-        url = get_url(action = 'folders_new', path = encode(url), id = k)
-        xbmcplugin.addDirectoryItem(_handle, url, listitem, True)
+        list_item.setArt({'thumb': icon, 'icon': icon})
+        link = get_url(action = 'folders_new', path = encode(url), id = k, data_type=data_type)
+        is_folder = True
+        xbmcplugin.addDirectoryItem(_handle, link, list_item, is_folder)
+    # xbmcplugin.endOfDirectory(_handle)
     xbmcplugin.endOfDirectory(_handle)
 
 
-def color_text(data):
+def color_text(data, is_search=False):
     actual = currentDate()
     DD = {'letak': {'name': 'Leták',   'date_color_cur': 'lightgreen', 'date_color_old': 'gray', 'date_color_new': 'orange'},
         'katalog': {'name': 'Katalóg', 'date_color_cur': 'lightblue',  'date_color_old': 'gray', 'date_color_new': 'violet'}}
@@ -419,26 +458,41 @@ def color_text(data):
     if 'sub_title' in data and data['sub_title'] != None:
         sub_title = data['sub_title']
     
-    if not old:
-        date_od_do = fixDateNewColor(startDate, endDate, color)
-        name = '%s %s %s ([COLOR=red]%s[/COLOR]) %s'%(dd['name'], date_od_do , sub_title , pages, check_text )
+    if is_search:
+            date_od_do = fixDateNewColor(startDate, endDate, color)
+            page = data['strana_kodi']
+            name = '[COLOR=yellow]%s[/COLOR] strana [COLOR=yellow]%s[/COLOR] %s %s ([COLOR=red]%s[/COLOR])'%(data['obchod'], page, date_od_do, sub_title, pages )
     else:
-        date_od_do = fixDateNew(startDate, endDate)
-        name = '[COLOR=%s]%s %s %s (%s) %s[/COLOR]'%(color, dd['name'], date_od_do, sub_title, pages, check_text )
-    # return name
+        if not old:
+            date_od_do = fixDateNewColor(startDate, endDate, color)
+            name = '%s %s %s ([COLOR=red]%s[/COLOR]) %s'%(dd['name'], date_od_do, sub_title, pages, check_text )
+        else:
+            date_od_do = fixDateNew(startDate, endDate)
+            name = '[COLOR=%s]%s %s %s (%s) %s[/COLOR]'%(color, dd['name'], date_od_do, sub_title, pages, check_text )
+        # return name
     return {'old': old, 'name': name }
 
-def folder_new(id):
-    idx = 0
+
+def folder_new(id, data_type='all'):
     idx_old = 0
     actual = currentDate()
-    datas = sortDataSpecific(DATA[id]['data'])
+    is_search = False
+    if data_type:
+        if data_type == 'filter':
+            datas = sortDataSpecific(DATA_FILTER[id]['data'])
+        elif data_type == 'search':
+            datas = DATA_SEARCH
+            is_search = True
+        elif data_type == 'all':
+            datas = sortDataSpecific(DATA[id]['data'])
+
+
     for data in datas:
         title = data['title']
         name = fixTitle ( title )
         if 'days' in data:
             # name = color_text(data)
-            no = color_text(data)
+            no = color_text(data, is_search)
             if no['old']:
                 idx_old += 1
             name = no['name'] if idx_old <= _max_old_items else None
@@ -447,53 +501,78 @@ def folder_new(id):
 
         listitem = xbmcgui.ListItem(label=name)
         listitem.setIsFolder(True)        
-        url = '%s/%s/%s'%(URL, id, title)
-        icon = '%s/__cover__.%s'%(url, FORMAT_IMG)
-        # icon = '%s/%s.webp'%(_icons, id)
-        
+        if is_search:
+            page = data['strana_kodi']
+            id = data['obchod']
+            url = '%s/%s/%s'%(URL, id, title)
+            icon = '{}/strana_{:02d}.{}'.format(url, page, FORMAT_IMG)
+        else:
+            url = '%s/%s/%s'%(URL, id, title)
+            icon = '%s/__cover__.%s'%(url, FORMAT_IMG)
+
         listitem.setArt({'thumb': icon, 'icon': icon})
-        url = get_url(action = 'pictures_new', path = encode(url), id = id, idx = idx)
+        url = get_url(action = 'pictures_new', path = encode(url), id = id, letak = data['title'], pages = data['pages'])
         xbmcplugin.addDirectoryItem(_handle, url, listitem, True)
-        idx += 1
     xbmcplugin.endOfDirectory(_handle)
 
-
-def pictures_new(id, idx):
-    idx = int(idx)
-    data_pic = DATA[id]['data'][idx]
-    letak = data_pic['title']
-    # brb = []
-    for i in range(data_pic['pages']):
+def pictures_new(id, letak, pages):
+    for i in range(int(pages)):
         title = 'strana_{:02d}.{}'.format(i+1, FORMAT_IMG)
         name = fixTitle ( title)
         url = '%s/%s/%s/%s'%(URL, id, letak, title) 
-        # url = [url, url]       
         listitem = xbmcgui.ListItem(label=name)
         listitem.setInfo('pictures', {'title': name})
         if addon.getSetting("thumb_enabled") == "false":
             listitem.setArt({'thumb': 'DefaultPicture.png', 'icon': 'DefaultPicture.png'})
         xbmcplugin.addDirectoryItem(_handle, url, listitem, False)
-        # brb = [
-        # (url, listitem, False),
-        # (url, listitem, False)
-        # ]
-        # brb.append((url, listitem, False))
-        # xbmcplugin.addDirectoryItems(_handle, brb, 2)
-
-    # xbmcplugin.addDirectoryItems(_handle, brb, len(brb))    
-    global monitor
     xbmcplugin.endOfDirectory(_handle)
-    
+
+def list_search(query=None):
+    global DATA_SEARCH
+    xbmcplugin.setPluginCategory(_handle, (addon.getLocalizedString(32100)))
+
+    if query is None:
+        kb = xbmc.Keyboard('', addon.getLocalizedString(32100))
+        kb.doModal()
+        if kb.isConfirmed():
+            query = kb.getText()
+        else:
+            query = ''
+
+    if query:
+        DATA_SEARCH = post_search(query)
+        folder_new(None, 'search')
+      
+    xbmcplugin.endOfDirectory(_handle)
+
 
 def router(paramstring):
     params = parse_par(paramstring)
-    if params and 'action' in params:
-        if params['action'] == 'menu_new':
-            menu_new()
-        elif params['action'] == 'folders_new':
-            folder_new(params["id"])
-        elif params['action'] == 'pictures_new':
-            pictures_new(params["id"], params["idx"])
+    if params:
+        if 'action' in params:
+            if params['action'] == 'menu_new':
+                menu_new(data_type='filter')
+
+            elif params['action'] == 'menu_all':
+                menu_new(data_type='all')
+
+            elif params['action'] == 'folders_new':
+                folder_new(params["id"], params["data_type"])
+
+            elif params['action'] == 'pictures_new':
+                pictures_new(params["id"], params["letak"], params["pages"])
+
+            else:
+                menu_new(data_type='filter')
+
+        elif 'query' in params:
+            list_search(params['query'])
+
+        elif 'search' in params:
+            list_search()
+
+        else:
+            menu_new(data_type='filter')
     else:
-        menu_new()
+        menu_new(data_type='filter')
 

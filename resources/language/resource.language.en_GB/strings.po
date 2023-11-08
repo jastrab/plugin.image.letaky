@@ -23,6 +23,15 @@ msgid "Mark Czech"
 msgstr ""
 
 
+msgctxt "#32004"
+msgid "All Mark"
+msgstr ""
+
+msgctxt "#32100"
+msgid "Search in flyers"
+msgstr ""
+
+
 msgctxt "#32101"
 msgid "Slovakia"
 msgstr ""

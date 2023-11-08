@@ -23,6 +23,14 @@ msgctxt "#32003"
 msgid "Mark Czech"
 msgstr "Obchody Česko"
 
+msgctxt "#32004"
+msgid "All Mark"
+msgstr "Všetky obchody"
+
+msgctxt "#32100"
+msgid "Search in flyers"
+msgstr "Vyhľadávanie v letákoch"
+
 
 msgctxt "#32101"
 msgid "Slovakia"

@@ -1,4 +1,11 @@
-[B]0.0.7.1:[/B] [/B] (27.05.2022)
+[B]0.0.8:[/B] (28.06.2022)
+ + kategoria vyhladavanie v letakoch
+ + kategoria vsetky obchody
+ - nove letaky -> 160 SK/ 152 CZ
+ - nove/doplnene loga
+ - zmena vyberu/filtrovania obchodov
+
+ [B]0.0.7.1:[/B] (27.05.2022)
 - fix pre android
 
 [B]0.0.7:[/B] (09.05.2022)
