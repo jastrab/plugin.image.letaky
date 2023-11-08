@@ -44,7 +44,7 @@ addon = xbmcaddon.Addon()
 def get_url(**kwargs):
     return '{0}?{1}'.format(_url, parse.urlencode(kwargs, 'utf-8'))
 
-def load_url(url, req=None, headers={}):
+def loadurl(url, req=None, headers={}):
     if req:
         req = parse.urlencode(req).encode('utf-8')
         req = request.Request(url, req, headers=headers)
