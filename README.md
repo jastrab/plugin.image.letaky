@@ -4,6 +4,11 @@ podpora pre Kodi 18/19/20
 
 Prezerenie akciových online letákov z rôznych obchodov ako Albert, Billa, Kaufland, Tesco, Lidl, DM, Jednota, Mojobchod, Fresh, Metro ...
 
+![obrázok](https://github.com/jastrab/plugin.image.letaky/assets/6190406/5fa8201f-f4ec-4c78-89a4-05b2f3fc9154)
+
+![obrázok](https://github.com/jastrab/plugin.image.letaky/assets/6190406/e59d8ecc-df79-471a-a3a8-4a84133bbc89)
+
+
 ## Changelog
 
 ### 0.1.0: (08.11.2023)
