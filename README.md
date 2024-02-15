@@ -1,8 +1,34 @@
 # plugin.image.letaky - addon pre Kodi pre prezeranie Letakov
 
+plugin zobrazuje slovenské a české letáky
+- výber vlastných obchodov
+- zobrazenie všetkých obchodov
+- zobrazenie ostávajúcich dní letáku
+- ukážka aktuálnych/ukončených letákov
+  
 podpora pre Kodi 18/19/20
+Kvalita obrázkov vychádza z originálnych letákov, preto sa mnohokrát ovplyvniť nedá, a niektoré sú fakt biedne :/ (napr. Tesco)
+ 
+Prezerenie akciových online letákov z rôznych obchodov ako Albert, Billa, Kaufland, Kinekus, Tesco, Lidl, DM, Jednota, Mojobchod, Fresh, Metro ...
 
-Prezerenie akciových online letákov z rôznych obchodov ako Albert, Billa, Kaufland, Tesco, Lidl, DM, Jednota, Mojobchod, Fresh, Metro ...
+## Ukážka pluginu:
+- zoznam obchodov
+  
+![obrázok](https://github.com/jastrab/plugin.image.letaky/assets/6190406/5fa8201f-f4ec-4c78-89a4-05b2f3fc9154)
+
+- zoznam letákov pre daný obchod
+  
+![obrázok](https://github.com/jastrab/plugin.image.letaky/assets/6190406/e59d8ecc-df79-471a-a3a8-4a84133bbc89)
+
+- stránky letáku
+  
+![obrázok](https://github.com/jastrab/plugin.image.letaky/assets/6190406/62da1dfd-218b-41a0-acec-a24f9a7a510b)
+
+## Site:
+Webova verzia online letakov:
+- pre SK: https://letaciky.sk
+- pre CZ: https://letaciky.cz
+- ďalšie: https://letaciky.com
 
 ## Changelog
 
