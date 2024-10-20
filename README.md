@@ -32,6 +32,9 @@ Webova verzia online letakov:
 
 ## Changelog
 
+### 0.2.0: (20.10.2024)
+- fix url domena pre obrazky a ikony
+
 ### 0.1.0: (08.11.2023)
 - fix zobrazenie polky letaku
 

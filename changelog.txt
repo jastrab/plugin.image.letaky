@@ -1,3 +1,6 @@
+[B]0.2.0:[/B] (20.10.2024)
+- fix url domena pre obrazky a ikony
+
 [B]0.1.0:[/B] (08.11.2023)
 - fix zobrazenie polky letaku
 

@@ -107,24 +107,15 @@ OBCHODY_CZ = addon.getSetting("obchody_cz")
 if LANG =='cz':
     OBCHODY = OBCHODY_CZ
     URL_API = 'https://letaciky.cz/api.php'
-    # URL = 'https://letaciky.cz/images/%s'%( LANG)
-    # URL = 'https://iovca.eu/images2/%s'%( LANG)
     URL_JSON = 'https://letaciky.cz/json/data_cz.json'
 else:
     URL_API = 'https://letaciky.sk/api.php'
-    # URL = 'https://letaciky.sk/images/%s'%( LANG)
     URL_JSON = 'https://letaciky.sk/json/data_sk.json'
 
 
-URL = 'https://iovca.eu/images2/%s'%( LANG)
-# URL = 'https://iovca.eu/images/%s'%( LANG)
-#URL_JSON = 'https://iovca.eu/images/data_test.json'
-#URL_JSON_ZIP = 'https://iovca.eu/images/data_test.zip'
+URL = 'https://letaciky.sk/images/%s'%( LANG)
+_icons = 'https://letaciky.sk/images/icons/'
 
-
-_icons = 'https://iovca.eu/images/icons/'
-
-# DATA_SEARCH = {}
 DATA = json_load_data()[LANG]
 data_filter = {}
 
